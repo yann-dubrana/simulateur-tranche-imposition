@@ -11,6 +11,9 @@ import {
     NavUl
 } from "flowbite-svelte";
 import {GithubSolid} from "flowbite-svelte-icons";
+import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+injectSpeedInsights();
 </script>
 
 <Navbar fluid>
