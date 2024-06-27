@@ -134,7 +134,7 @@ class Application {
             data.push({
                 label: bracket.name,
                 data: bracket.generate(this.maxIncome, this.resolution, this.numPeople).map(entry => ({
-                    x: entry.income,
+                    x: entry.income / this.numPeople,
                     y: entry.totalTax
                 })),
                 borderColor: bracket.color,
