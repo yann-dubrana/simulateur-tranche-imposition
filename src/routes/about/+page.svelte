@@ -11,7 +11,6 @@
         TableHead,
         TableHeadCell
     } from "flowbite-svelte";
-    import {app} from "$lib/tax.svelte";
 
 </script>
 
@@ -21,7 +20,7 @@
     <Heading tag="h1" class="mb-12">À propos du simulateur</Heading>
     <P class="indent-6">J'ai créé cette application après avoir vu un post sur Reddit qui se moquait d'une fausse
         information du Rassemblement
-        National sur les tranches d'imposition proposées par La France Insoumise à l'Assemblée Nationale en 2022. Cela
+        National sur les tranches d'imposition proposées par la NUPES à l'Assemblée Nationale en 2022. Cela
         m'a
         fait réaliser que je n'avais jamais bien compris le fonctionnement des tranches d'imposition en France.</P>
 

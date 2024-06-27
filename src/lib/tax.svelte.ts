@@ -171,7 +171,7 @@ class Application {
 
 export const app = new Application([
     new TaxBracket(
-        "Actuel",
+        "actuelle",
         "#50011e",
         [
             new TaxBracketItem(11294, 0),
@@ -182,7 +182,7 @@ export const app = new Application([
         ]
     ),
     new TaxBracket(
-        "LFI",
+        "NUPES 2022",
         "#055226",
         [
             new TaxBracketItem(10292, 0.01),
