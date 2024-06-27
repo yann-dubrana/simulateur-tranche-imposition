@@ -49,7 +49,7 @@ class TaxBracketItemDetail {
 
 export class TaxBracketResult {
     name: string = ""
-    color: string = "#8e0d41"
+    color: string = ""
     income: number = 0
     total: number = 0
     items: TaxBracketItemDetail[] = []
@@ -61,7 +61,7 @@ export class TaxBracketResult {
 
 class TaxBracket {
     name: string = ""
-    color: string = "#8e0d41"
+    color: string = ""
     items: TaxBracketItem[] = []
 
     constructor(name: string, color: string, items: TaxBracketItem[]) {
@@ -107,7 +107,7 @@ class TaxBracket {
 
 class Application {
 
-    graphFactor: number = $state(4)
+    graphFactor: number = $state(2)
 
     numPeople: number = $state(1)
     income: number = $state(32000)
