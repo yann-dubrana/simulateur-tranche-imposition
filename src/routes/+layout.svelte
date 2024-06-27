@@ -2,8 +2,6 @@
 import {
     Footer,
     FooterCopyright, FooterIcon,
-    FooterLink,
-    FooterLinkGroup,
     Navbar,
     NavBrand,
     NavHamburger,
@@ -11,8 +9,10 @@ import {
     NavUl
 } from "flowbite-svelte";
 import {GithubSolid} from "flowbite-svelte-icons";
+import { inject } from '@vercel/analytics'
 import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
+inject();
 injectSpeedInsights();
 </script>
 
