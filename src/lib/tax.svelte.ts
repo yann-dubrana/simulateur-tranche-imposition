@@ -52,10 +52,11 @@ export class TaxBracketResult {
     color: string = ""
     income: number = 0
     total: number = 0
+    numPeople: number = 1
     items: TaxBracketItemDetail[] = []
 
     position() {
-        return {x: this.income, y: this.total}
+        return {x: this.income / this.numPeople, y: this.total}
     }
 }
 
@@ -88,6 +89,7 @@ class TaxBracket {
         calculation.name = this.name
         calculation.color = this.color
         calculation.income = income;
+        calculation.numPeople = numPeople;
         for (const {limit, rate} of this.items) {
             if (quotientIncome > previousLimit) {
                 const taxableAmount = Math.min(quotientIncome, limit) - previousLimit;
