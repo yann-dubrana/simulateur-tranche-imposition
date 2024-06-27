@@ -20,22 +20,25 @@
     <Table>
         <TableHead>
             <TableHeadCell>Tranche (€)</TableHeadCell>
+            <TableHeadCell>Taxable (€)</TableHeadCell>
             <TableHeadCell>Taux (%)</TableHeadCell>
             <TableHeadCell>Montant (€)</TableHeadCell>
         </TableHead>
         <TableBody tableBodyClass="divide-y">
-            {#each bracket.items as {taxableAmount, rate, tax}}
+            {#each bracket.items as b}
                 <TableBodyRow>
-                    <TableBodyCell class="text-right">{taxableAmount.toLocaleString('fr-FR', {
+                    <TableBodyCell class="text-right">{b.rangeLabel()}</TableBodyCell>
+                    <TableBodyCell class="text-right">{(b.taxableAmount).toLocaleString('fr-FR', {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 0
-                    }) + " €"}</TableBodyCell>
-                    <TableBodyCell class="text-right">{(rate * 100).toLocaleString('fr-FR', {
-                        minimumFractionDigits: 0,
-                        maximumFractionDigits: 0
-                    })}%
+                    })} €
                     </TableBodyCell>
-                    <TableBodyCell class="text-right">{tax.toLocaleString('fr-FR', {
+                    <TableBodyCell class="text-right">{(b.rate * 100).toLocaleString('fr-FR', {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0
+                    })} %
+                    </TableBodyCell>
+                    <TableBodyCell class="text-right">{b.tax.toLocaleString('fr-FR', {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2
                     }) + " €"}</TableBodyCell>

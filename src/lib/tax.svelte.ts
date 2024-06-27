@@ -9,14 +9,41 @@ class TaxBracketItem {
 }
 
 class TaxBracketItemDetail {
+    bottomRange = 0
+    highRange = 0
+
     taxableAmount: number = 0
     rate: number = 0
     tax: number = 0
 
-    constructor(taxableAmount: number, rate: number, tax: number) {
+    constructor(bottomRange: number, higherRange: number, taxableAmount: number, rate: number, tax: number) {
+        this.bottomRange = bottomRange
+        this.highRange = higherRange
         this.taxableAmount = taxableAmount
         this.rate = rate
         this.tax = tax
+    }
+
+    rangeLabel() {
+        if (this.bottomRange === 0) {
+            return `jusqu'a ${this.highRange.toLocaleString('fr-FR', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            })} €`
+        }
+        if (this.highRange === Infinity) {
+            return `à partir de ${(this.bottomRange + 1).toLocaleString('fr-FR', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            })} €`;
+        }
+        return `De ${(this.bottomRange + 1).toLocaleString('fr-FR', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        })} à ${this.highRange.toLocaleString('fr-FR', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        })} €`;
     }
 }
 
@@ -57,7 +84,6 @@ class TaxBracket {
         let previousLimit = 0;
         const quotientIncome = income / numPeople;
 
-
         let calculation: TaxBracketResult = new TaxBracketResult();
         calculation.name = this.name
         calculation.color = this.color
@@ -66,7 +92,9 @@ class TaxBracket {
             if (quotientIncome > previousLimit) {
                 const taxableAmount = Math.min(quotientIncome, limit) - previousLimit;
                 const tax = taxableAmount * rate;
-                calculation.items.push(new TaxBracketItemDetail(taxableAmount, rate, tax));
+                const bottomRange = previousLimit;
+                const highRange = limit === Infinity ? Infinity : limit;
+                calculation.items.push(new TaxBracketItemDetail(bottomRange, highRange, taxableAmount, rate, tax));
                 calculation.total += tax;
             }
             previousLimit = limit;
@@ -134,7 +162,7 @@ class Application {
         this.taxBrackets = taxBrackets
     }
 
-    getBracketByName(name:string) {
+    getBracketByName(name: string) {
         return this.taxBrackets.find(bracket => bracket.name.toUpperCase() === name.toUpperCase());
     }
 
