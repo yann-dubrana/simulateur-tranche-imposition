@@ -5,11 +5,15 @@
     import {app} from '$lib/tax.svelte';
     import {Chart} from 'chart.js/auto';
     import 'chartjs-adapter-moment';
-    import {Input} from "flowbite-svelte";
+    import Device from "svelte-device-info";
+
 
     let chart = $state(undefined);
+    let maintainAspectRatio = true;
 
     onMount(() => {
+        maintainAspectRatio = !Device.isPhone
+        console.log(maintainAspectRatio)
         draw()
     })
 
@@ -32,6 +36,8 @@
                 datasets: app.dataset
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: maintainAspectRatio,
                 plugins: {
                     title: {
                         display: true,
@@ -61,7 +67,7 @@
 
 </script>
 
-<div class="p-6">
+<div class="p-6 flex flex-row items-center justify-between min-h-96">
     <canvas id="taxChart"></canvas>
 </div>
 

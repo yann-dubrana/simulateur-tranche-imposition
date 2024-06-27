@@ -17,6 +17,9 @@ importers:
       flowbite-svelte-icons:
         specifier: ^1.6.1
         version: 1.6.1(svelte@5.0.0-next.166)(tailwind-merge@2.3.0)(tailwindcss@3.4.4)
+      svelte-device-info:
+        specifier: ^1.0.5
+        version: 1.0.5
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^3.0.2
@@ -1039,6 +1042,9 @@ packages:
     hasBin: true
     peerDependencies:
       svelte: ^3.55.0 || ^4.0.0-next.0 || ^4.0.0 || ^5.0.0-next.0
+
+  svelte-device-info@1.0.5:
+    resolution: {integrity: sha512-ImYE588bWDufOQChS8xfb6bVstkJHPuDk8tDtwYgkYU55WvfSzKTzkpblZkizWRpUNvnrakgsx24yHr6O3rY1g==}
 
   svelte-hmr@0.16.0:
     resolution: {integrity: sha512-Gyc7cOS3VJzLlfj7wKS0ZnzDVdv3Pn2IuVeJPk9m2skfhcu5bq3wtIZyQGggr7/Iim5rH5cncyQft/kRLupcnA==}
@@ -2078,6 +2084,10 @@ snapshots:
       - sass
       - stylus
       - sugarss
+
+  svelte-device-info@1.0.5:
+    dependencies:
+      tslib: 2.6.3
 
   svelte-hmr@0.16.0(svelte@5.0.0-next.166):
     dependencies:
