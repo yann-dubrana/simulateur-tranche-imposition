@@ -80,7 +80,7 @@
         spécifiques, mais il peut donner une bonne idée générale. À terme, nous prévoyons d'ajouter des grilles
         personnalisées pour une meilleure précision.</P>
 
-    <P class="mt-6 italic"><strong>Exemple du barème LFI proposé en 2022:</strong></P>
+    <P class="mt-6 italic"><strong>Exemple du barème NUPES proposé en 2022:</strong></P>
 
     <Table>
         <TableBody tableBodyClass="divide-y">
