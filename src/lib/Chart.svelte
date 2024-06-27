@@ -13,7 +13,6 @@
 
     onMount(() => {
         maintainAspectRatio = !Device.isPhone
-        console.log(maintainAspectRatio)
         draw()
     })
 
